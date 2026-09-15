@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>manaKAmana Label Desk</title>
+<meta name="description" content="Packing dashboard for the Nepal workshop: every manaKAmana Amazon product with its photo, colour, size, codes and a printable FNSKU label sheet.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Label Desk">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#23478F">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F6F2; --panel:#FFFFFF; --ink:#1B2620; --ink-2:#4A5A52; --ink-3:#7C8A83; --line:#DDE1DA;
+  --accent:#23478F; --accent-ink:#FFFFFF; --accent-soft:#E3EAF7; --new:#C97A00; --new-soft:#FCEBD1;
+  --chip:#EEF0EA; --shadow:0 1px 2px rgba(27,38,32,.06), 0 8px 24px -12px rgba(27,38,32,.18);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141917; --panel:#1D2321; --ink:#EEF1EC; --ink-2:#B7C0B9; --ink-3:#7F8C85; --line:#2E3733;
+  --accent:#7AA0E8; --accent-ink:#0E1626; --accent-soft:#22304A; --new:#F0A93A; --new-soft:#3D2C10;
+  --chip:#26302B; --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}}
+:root[data-theme="dark"]{
+  --bg:#141917; --panel:#1D2321; --ink:#EEF1EC; --ink-2:#B7C0B9; --ink-3:#7F8C85; --line:#2E3733;
+  --accent:#7AA0E8; --accent-ink:#0E1626; --accent-soft:#22304A; --new:#F0A93A; --new-soft:#3D2C10;
+  --chip:#26302B; --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 "IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;margin:0;padding-block:0 48px}
+a{color:inherit}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 20px}
+.top-in{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.brand{font:700 20px/1 Sora,"IBM Plex Sans",sans-serif;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.brand small{font:500 12px/1 "IBM Plex Sans",sans-serif;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.search{flex:1 1 260px;display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.search svg{flex:none;color:var(--ink-3)}
+.search input{flex:1;border:0;background:transparent;color:var(--ink);font:500 16px "IBM Plex Sans",sans-serif;min-width:0;outline:none}
+.search input:focus-visible{outline:none} .search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.lang{border:1px solid var(--line);background:var(--panel);color:var(--accent);font:600 14px "IBM Plex Sans",sans-serif;border-radius:999px;padding:7px 14px;cursor:pointer;order:3}
+.lang:focus-visible{outline:3px solid var(--new);outline-offset:2px}
+.install{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px} .install summary{cursor:pointer;font-weight:600;color:var(--accent)} .install p{margin:6px 0 0}
+.count{font:500 13px "IBM Plex Mono",monospace;color:var(--ink-3);white-space:nowrap}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+.intro{display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:end;padding-block:28px 8px}
+.intro h1{font:700 clamp(26px,3.2vw,36px)/1.1 Sora,sans-serif;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+.intro p{margin:0;max-width:62ch;color:var(--ink-2)}
+.how{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink-2);min-width:260px}
+.how b{display:block;color:var(--ink);margin-bottom:6px;font-weight:600}
+.how ol{margin:0;padding-left:18px;display:grid;gap:3px}
+nav.fams{display:flex;flex-wrap:wrap;gap:6px;padding-block:14px 6px}
+nav.fams a{text-decoration:none;font-size:13px;font-weight:500;color:var(--ink-2);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 10px 5px 12px;display:inline-flex;gap:8px;align-items:center}
+nav.fams a b{font:600 11px "IBM Plex Mono",monospace;background:var(--chip);border-radius:999px;padding:1px 7px;color:var(--ink-3)}
+nav.fams a:hover{border-color:var(--accent);color:var(--accent)}
+.fam{padding-block:22px 6px;scroll-margin-top:80px}
+.fam-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:16px}
+.fam-h h2{font:700 22px/1.15 Sora,sans-serif;letter-spacing:-.01em;margin:0}
+.fam-h p{margin:0;color:var(--ink-3);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card[hidden]{display:none}
+.pic{position:relative;aspect-ratio:1;background:#fff;border-bottom:1px solid var(--line)}
+.pic img{width:100%;height:100%;object-fit:contain;display:block}
+.noimg{height:100%;display:grid;place-content:center;text-align:center;color:var(--ink-3);font-size:14px;background:repeating-linear-gradient(45deg,var(--chip) 0 10px,var(--panel) 10px 20px)}
+.noimg span{font-size:12px}
+.new{position:absolute;top:10px;left:10px;background:var(--new);color:#fff;font:700 11px/1 Sora,sans-serif;letter-spacing:.08em;padding:5px 8px;border-radius:6px}
+.body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px;flex:1}
+h3{font:600 15px/1.3 "IBM Plex Sans",sans-serif;margin:0;text-wrap:balance}
+.chips{display:flex;flex-wrap:wrap;gap:6px;min-height:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:6px;padding:3px 8px;font-size:13px;font-weight:500}
+.chip i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.18);background:var(--sw,#ccc)}
+.chip.size{font-family:"IBM Plex Mono",monospace;font-weight:600;background:var(--accent-soft);color:var(--accent)}
+.c-natural i{--sw:#D9C9A3} .c-black i{--sw:#1a1a1a} .c-green i{--sw:#3F7A45} .c-red i{--sw:#B8302E} .c-purple i{--sw:#6E4B9E} .c-teal i{--sw:#2A8C8C}
+.c-colorful i,.c-multicolor i{--sw:conic-gradient(#e63946,#f4a261,#e9c46a,#2a9d8f,#457b9d,#e63946)} .c-blue i{--sw:#2F5DA8} .c-maroon i{--sw:#6D1F2F} .c-white i{--sw:#F5F5F0} .c-off-white i{--sw:#EDE6D6}
+.c-beige i{--sw:#D8C8A8} .c-grey i{--sw:#8E8E8E} .c-grey-blue i{--sw:#6C8299} .c-orange i{--sw:#E0782A} .c-red-mix i{--sw:linear-gradient(135deg,#B8302E 50%,#E9A23B 50%)}
+.codes{margin:0;display:grid;gap:3px;font-family:"IBM Plex Mono",monospace;font-size:13px}
+.codes div{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed var(--line);padding-top:3px}
+.codes dt{color:var(--ink-3);font-size:11px;letter-spacing:.06em;margin:0;padding-top:2px}
+.codes dd{margin:0;font-weight:600;user-select:all}
+.dl{margin-top:auto;display:flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;line-height:1.15}
+.dl small{display:block;font-weight:500;font-size:11px;opacity:.85;letter-spacing:.02em}
+.dl:hover{filter:brightness(1.08)} .dl:focus-visible{outline:3px solid var(--new);outline-offset:2px}
+.actions{margin-top:auto;display:flex;gap:6px} .actions .dl{flex:1;margin-top:0;border:0;cursor:pointer;font-family:inherit}
+.pdf{display:flex;align-items:center;justify-content:center;padding:0 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;font:600 12px "IBM Plex Mono",monospace;color:var(--ink-2)} .pdf:hover{border-color:var(--accent);color:var(--accent)}
+/* print dialog */
+.modal{position:fixed;inset:0;z-index:20;background:rgba(10,16,13,.55);display:none;align-items:center;justify-content:center;padding:16px}
+.modal.open{display:flex}
+.sheet{background:var(--panel);color:var(--ink);border-radius:16px;width:min(920px,100%);max-height:100%;overflow:auto;display:grid;grid-template-columns:1fr 300px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.preview{background:var(--chip);padding:20px;display:flex;align-items:flex-start;justify-content:center;min-height:320px}
+.preview canvas{width:100%;max-width:420px;height:auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.preview .msg{color:var(--ink-3);align-self:center;text-align:center}
+.panel{padding:22px;display:flex;flex-direction:column;gap:14px}
+.panel h2{font:700 20px/1.2 Sora,sans-serif;margin:0} .panel .meta{color:var(--ink-2);margin:0}
+.panel .code{font:600 15px "IBM Plex Mono",monospace;background:var(--chip);padding:8px 10px;border-radius:8px}
+.qty{display:flex;align-items:center;gap:8px} .qty label{flex:1;font-weight:500}
+.qty button{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-size:20px;cursor:pointer}
+.qty output{font:600 22px "IBM Plex Mono",monospace;min-width:2ch;text-align:center}
+.labels-total{color:var(--ink-3);font-size:13px;margin:-6px 0 0}
+.btn{border:0;border-radius:10px;padding:13px 16px;font:600 16px "IBM Plex Sans",sans-serif;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)} .btn.primary:disabled{opacity:.5;cursor:default}
+.btn.ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line)}
+.btn:focus-visible{outline:3px solid var(--new);outline-offset:2px}
+.hint{font-size:12px;color:var(--ink-3);margin:0}
+.after{background:var(--new-soft);border:1px solid var(--new);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.4} .after b{display:block;margin-bottom:2px}
+@media (max-width:700px){.sheet{grid-template-columns:1fr}}
+#printArea{display:none}
+@media print{
+  @page{size:A4 portrait;margin:0}
+  body{background:#fff;padding:0}
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block}
+  #printArea img{display:block;width:210mm;height:297mm;page-break-after:always;break-after:page}
+  #printArea img:last-child{page-break-after:auto;break-after:auto}
+}
+.empty{display:none;padding:40px 0;color:var(--ink-3);text-align:center}
+body.nores .empty{display:block} body.nores .fam{display:none}
+footer{margin-top:36px;color:var(--ink-3);font-size:12px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:640px){.top{padding:10px 14px} .top-in{gap:8px 10px} .brand{font-size:17px} .brand small{display:none} .search{order:4;flex-basis:100%} .count{order:2;margin-left:auto} .intro{grid-template-columns:1fr;padding-block:18px 4px} .how{min-width:0} .dl{min-height:48px} .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px} .body{padding:10px} h3{font-size:14px} .dl{font-size:14px;padding:9px 10px}}
+@media (prefers-reduced-motion:no-preference){.card{transition:transform .15s} .card:hover{transform:translateY(-2px)}}
+</style></head><body>
+
+<div class="top"><div class="top-in">
+  <div class="brand">manaKAmana <small>Label Desk</small></div>
+  <button id="lang" class="lang" type="button" aria-label="Switch language"><span data-en="नेपाली" data-ne="English">नेपाली</span></button>
+  <label class="search"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M10.5 3a7.5 7.5 0 1 1 0 15 7.5 7.5 0 0 1 0-15zM16 16l5 5"/></svg>
+    <input id="q" type="search" placeholder="Search SKU / colour / size…" data-en="Search SKU / colour / size…" data-ne="SKU, रङ, साइज खोज्नुहोस्…" autocomplete="off"></label>
+  <div class="count"><span id="shown">69</span> / 69 SKU</div>
+</div></div>
+
+<div class="wrap">
+  <div class="intro">
+    <div><h1 data-en="Amazon labels for packing" data-ne="प्याकिङका लागि Amazon लेबल">Amazon labels for packing</h1>
+      <p data-en="One card for every product we ship to Amazon USA. Match the photo, colour and size to the piece you are packing, then open its label sheet and print it on A4 — every piece needs one FNSKU barcode sticker." data-ne="Amazon USA मा पठाइने हरेक उत्पादनको एउटा कार्ड। फोटो, रङ र साइज मिलाउनुहोस्, त्यसपछि लेबल पाना खोलेर A4 मा प्रिन्ट गर्नुहोस् — हरेक पिसमा एउटा FNSKU बारकोड स्टिकर चाहिन्छ।">One card for every product we ship to Amazon USA. Match the photo, colour and size to the piece you are packing, then open its label sheet and print it on A4 — every piece needs one FNSKU barcode sticker.</p></div>
+    <div class="how"><b data-en="How to print" data-ne="कसरी प्रिन्ट गर्ने">How to print</b>
+      <ol><li data-en="Find the product (search box or scroll)." data-ne="उत्पादन खोज्नुहोस् (खोज बक्स वा स्क्रोल)।">Find the product (search box or scroll).</li><li data-en="Tap “Print labels”, choose how many sheets, press Print." data-ne="“Print labels” थिच्नुहोस्, कति पाना छान्नुहोस्, Print थिच्नुहोस्।">Tap “Print labels”, choose how many sheets, press Print.</li><li data-en="In the print window: A4, scale 100%, margins none, on 40-up label paper (52.5 × 29.7 mm)." data-ne="प्रिन्ट विन्डोमा: A4, स्केल 100%, मार्जिन छैन, ४० लेबलको पेपरमा (52.5 × 29.7 mm)।">In the print window: A4, scale 100%, margins none, on 40-up label paper (52.5 × 29.7 mm).</li><li data-en="One sheet = 40 labels. Print again anytime." data-ne="एक पाना = ४० लेबल। जहिले पनि फेरि प्रिन्ट गर्न सकिन्छ।">One sheet = 40 labels. Print again anytime.</li></ol></div>
+  </div>
+  <nav class="fams"><a href="#hat-frayed">Hemp Sun Hat — frayed edge<b>19</b></a><a href="#hat-clean">Hemp Sun Hat — clean edge (foldable)<b>6</b></a><a href="#hat-bucket">Hemp Bucket Hat<b>3</b></a><a href="#fisherman">Thai Fisherman Pants<b>10</b></a><a href="#cargo">Harem Cargo Pants<b>2</b></a><a href="#poncho">Ponchos<b>3</b></a><a href="#palazzo">Palazzo Pants + Wrap Top Set<b>2</b></a><a href="#pouches">Pouches &amp; Coin Purses<b>7</b></a><a href="#bags">Bags &amp; Carriers<b>4</b></a><a href="#wallets">Hemp Wallets<b>3</b></a><a href="#mittens">Wool Mittens<b>4</b></a><a href="#legwarmers">Wool Leg Warmers<b>4</b></a><a href="#headbands">Ear Warmer Headbands<b>2</b></a></nav>
+  <section id="hat-frayed" class="fam">
+  <header class="fam-h"><h2>Hemp Sun Hat — frayed edge</h2><p>Wired wide brim, frayed (fringe) edge · 19 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="hat06blm x004s5sf0v b0fkbz4rds hemp sun hat, frayed edge black s/m · 7–7¼">
+  <div class="pic"><img src="img-51UjLCEl8OL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06BLM</dd></div>
+      <div><dt>FNSKU</dt><dd>X004S5SF0V</dd></div>
+      <div><dt>ASIN</dt><dd>B0FKBZ4RDS</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06BLM" data-name="Hemp Sun Hat, frayed edge" data-meta="Black · S/M · 7–7¼" data-fnsku="X004S5SF0V">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06BLM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="o0-effh-1d49 x003aawxxz b0b3wh82yg hemp sun hat, frayed edge black m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-51UjLCEl8OL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>O0-EFFH-1D49</dd></div>
+      <div><dt>FNSKU</dt><dd>X003AAWXXZ</dd></div>
+      <div><dt>ASIN</dt><dd>B0B3WH82YG</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="O0-EFFH-1D49" data-name="Hemp Sun Hat, frayed edge" data-meta="Black · M/L · 7⅛–7⅝" data-fnsku="X003AAWXXZ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-O0-EFFH-1D49.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="vc-tjt0-96ob x003aau38r b0b3whcz1z hemp sun hat, frayed edge black xl/xxl · 7¾–8">
+  <div class="pic"><img src="img-51UjLCEl8OL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span><span class="chip size">XL/XXL · 7¾–8</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>VC-TJT0-96OB</dd></div>
+      <div><dt>FNSKU</dt><dd>X003AAU38R</dd></div>
+      <div><dt>ASIN</dt><dd>B0B3WHCZ1Z</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="VC-TJT0-96OB" data-name="Hemp Sun Hat, frayed edge" data-meta="Black · XL/XXL · 7¾–8" data-fnsku="X003AAU38R">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-VC-TJT0-96OB.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06rb2s x0050gdk9d b0gntn6fmg hemp sun hat, frayed edge colorful s/m · 7–7¼">
+  <div class="pic"><img src="img-51fWRgcqaSL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-colorful"><i></i>Colorful</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06RB2S</dd></div>
+      <div><dt>FNSKU</dt><dd>X0050GDK9D</dd></div>
+      <div><dt>ASIN</dt><dd>B0GNTN6FMG</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06RB2S" data-name="Hemp Sun Hat, frayed edge" data-meta="Colorful · S/M · 7–7¼" data-fnsku="X0050GDK9D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06RB2S.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="ql-3hsl-w9pl x004avhvg7 b0d847dy7g hemp sun hat, frayed edge colorful m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-51fWRgcqaSL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-colorful"><i></i>Colorful</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>QL-3HSL-W9PL</dd></div>
+      <div><dt>FNSKU</dt><dd>X004AVHVG7</dd></div>
+      <div><dt>ASIN</dt><dd>B0D847DY7G</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="QL-3HSL-W9PL" data-name="Hemp Sun Hat, frayed edge" data-meta="Colorful · M/L · 7⅛–7⅝" data-fnsku="X004AVHVG7">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-QL-3HSL-W9PL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="gl-cdjj-zujn x004az7wvh b0d845wpgl hemp sun hat, frayed edge colorful xl/xxl · 7¾–8">
+  <div class="pic"><img src="img-51fWRgcqaSL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-colorful"><i></i>Colorful</span><span class="chip size">XL/XXL · 7¾–8</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>GL-CDJJ-ZUJN</dd></div>
+      <div><dt>FNSKU</dt><dd>X004AZ7WVH</dd></div>
+      <div><dt>ASIN</dt><dd>B0D845WPGL</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="GL-CDJJ-ZUJN" data-name="Hemp Sun Hat, frayed edge" data-meta="Colorful · XL/XXL · 7¾–8" data-fnsku="X004AZ7WVH">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-GL-CDJJ-ZUJN.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="93-mhey-x7le x003ahhnsx b0b4krb5tt hemp sun hat, frayed edge green s/m · 7–7¼">
+  <div class="pic"><img src="img-612IcQosAtL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>93-MHEY-X7LE</dd></div>
+      <div><dt>FNSKU</dt><dd>X003AHHNSX</dd></div>
+      <div><dt>ASIN</dt><dd>B0B4KRB5TT</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="93-MHEY-X7LE" data-name="Hemp Sun Hat, frayed edge" data-meta="Green · S/M · 7–7¼" data-fnsku="X003AHHNSX">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-93-MHEY-X7LE.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="cz-iv9k-wu2k x003ywzkon b0b4482ykk hemp sun hat, frayed edge green m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-612IcQosAtL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>CZ-IV9K-WU2K</dd></div>
+      <div><dt>FNSKU</dt><dd>X003YWZKON</dd></div>
+      <div><dt>ASIN</dt><dd>B0B4482YKK</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="CZ-IV9K-WU2K" data-name="Hemp Sun Hat, frayed edge" data-meta="Green · M/L · 7⅛–7⅝" data-fnsku="X003YWZKON">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-CZ-IV9K-WU2K.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="ui-0m9y-o3re x003ab35rr b0b44smwt8 hemp sun hat, frayed edge green xl/xxl · 7¾–8">
+  <div class="pic"><img src="img-612IcQosAtL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span><span class="chip size">XL/XXL · 7¾–8</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>UI-0M9Y-O3RE</dd></div>
+      <div><dt>FNSKU</dt><dd>X003AB35RR</dd></div>
+      <div><dt>ASIN</dt><dd>B0B44SMWT8</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="UI-0M9Y-O3RE" data-name="Hemp Sun Hat, frayed edge" data-meta="Green · XL/XXL · 7¾–8" data-fnsku="X003AB35RR">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-UI-0M9Y-O3RE.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06ntsm x004xyt46v b0g6ds7rrb hemp sun hat, frayed edge natural s/m · 7–7¼">
+  <div class="pic"><img src="img-51W+vHyHS8L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06NTSM</dd></div>
+      <div><dt>FNSKU</dt><dd>X004XYT46V</dd></div>
+      <div><dt>ASIN</dt><dd>B0G6DS7RRB</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06NTSM" data-name="Hemp Sun Hat, frayed edge" data-meta="Natural · S/M · 7–7¼" data-fnsku="X004XYT46V">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06NTSM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06ntm x002gbanof b083z2hd85 hemp sun hat, frayed edge natural m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-51W+vHyHS8L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06NTM</dd></div>
+      <div><dt>FNSKU</dt><dd>X002GBANOF</dd></div>
+      <div><dt>ASIN</dt><dd>B083Z2HD85</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06NTM" data-name="Hemp Sun Hat, frayed edge" data-meta="Natural · M/L · 7⅛–7⅝" data-fnsku="X002GBANOF">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06NTM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06nt x0028wrbjr b07vd8b8fh hemp sun hat, frayed edge natural xl/xxl · 7¾–8">
+  <div class="pic"><img src="img-51W+vHyHS8L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">XL/XXL · 7¾–8</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06NT</dd></div>
+      <div><dt>FNSKU</dt><dd>X0028WRBJR</dd></div>
+      <div><dt>ASIN</dt><dd>B07VD8B8FH</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06NT" data-name="Hemp Sun Hat, frayed edge" data-meta="Natural · XL/XXL · 7¾–8" data-fnsku="X0028WRBJR">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06NT.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06pm x004s5h7t1 b0fkc24y98 hemp sun hat, frayed edge purple s/m · 7–7¼">
+  <div class="pic"><img src="img-51maUYZwv7L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-purple"><i></i>Purple</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06PM</dd></div>
+      <div><dt>FNSKU</dt><dd>X004S5H7T1</dd></div>
+      <div><dt>ASIN</dt><dd>B0FKC24Y98</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06PM" data-name="Hemp Sun Hat, frayed edge" data-meta="Purple · S/M · 7–7¼" data-fnsku="X004S5H7T1">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06PM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06prl x004rp03f7 b0fhxz1z7q hemp sun hat, frayed edge purple m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-51maUYZwv7L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-purple"><i></i>Purple</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06PRL</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RP03F7</dd></div>
+      <div><dt>ASIN</dt><dd>B0FHXZ1Z7Q</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06PRL" data-name="Hemp Sun Hat, frayed edge" data-meta="Purple · M/L · 7⅛–7⅝" data-fnsku="X004RP03F7">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06PRL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06rm x004s5sf15 b0fkbywxs3 hemp sun hat, frayed edge red s/m · 7–7¼">
+  <div class="pic"><img src="img-41NH-9I-z9L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-red"><i></i>Red</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06RM</dd></div>
+      <div><dt>FNSKU</dt><dd>X004S5SF15</dd></div>
+      <div><dt>ASIN</dt><dd>B0FKBYWXS3</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06RM" data-name="Hemp Sun Hat, frayed edge" data-meta="Red · S/M · 7–7¼" data-fnsku="X004S5SF15">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06RM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06rdl x004rnvqdh b0fhy1nlhw hemp sun hat, frayed edge red m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-41NH-9I-z9L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-red"><i></i>Red</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06RDL</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RNVQDH</dd></div>
+      <div><dt>ASIN</dt><dd>B0FHY1NLHW</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06RDL" data-name="Hemp Sun Hat, frayed edge" data-meta="Red · M/L · 7⅛–7⅝" data-fnsku="X004RNVQDH">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06RDL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06rdxl x004roxod1 b0fhyfk4sc hemp sun hat, frayed edge red xl/xxl · 7¾–8">
+  <div class="pic"><img src="img-41NH-9I-z9L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-red"><i></i>Red</span><span class="chip size">XL/XXL · 7¾–8</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06RDXL</dd></div>
+      <div><dt>FNSKU</dt><dd>X004ROXOD1</dd></div>
+      <div><dt>ASIN</dt><dd>B0FHYFK4SC</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06RDXL" data-name="Hemp Sun Hat, frayed edge" data-meta="Red · XL/XXL · 7¾–8" data-fnsku="X004ROXOD1">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06RDXL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06tem x004s6gazh b0fkbygxmh hemp sun hat, frayed edge teal s/m · 7–7¼">
+  <div class="pic"><img src="img-41EfFm4kXLL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-teal"><i></i>Teal</span><span class="chip size">S/M · 7–7¼</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06TEM</dd></div>
+      <div><dt>FNSKU</dt><dd>X004S6GAZH</dd></div>
+      <div><dt>ASIN</dt><dd>B0FKBYGXMH</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06TEM" data-name="Hemp Sun Hat, frayed edge" data-meta="Teal · S/M · 7–7¼" data-fnsku="X004S6GAZH">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06TEM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat06tll x004roxgbl b0fhyb56mp hemp sun hat, frayed edge teal m/l · 7⅛–7⅝">
+  <div class="pic"><img src="img-41EfFm4kXLL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, frayed edge</h3>
+    <div class="chips"><span class="chip c-teal"><i></i>Teal</span><span class="chip size">M/L · 7⅛–7⅝</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT06TLL</dd></div>
+      <div><dt>FNSKU</dt><dd>X004ROXGBL</dd></div>
+      <div><dt>ASIN</dt><dd>B0FHYB56MP</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT06TLL" data-name="Hemp Sun Hat, frayed edge" data-meta="Teal · M/L · 7⅛–7⅝" data-fnsku="X004ROXGBL">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT06TLL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="hat-clean" class="fam">
+  <header class="fam-h"><h2>Hemp Sun Hat — clean edge (foldable)</h2><p>Wired wide brim, clean sewn edge, no fringe · 6 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="jv-iw8y-9xx9 x0058zef9p b0hfsn72lm hemp sun hat, clean edge black medium">
+  <div class="pic"><img src="img-41qMjqNj4SL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span><span class="chip size">Medium</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>JV-IW8Y-9XX9</dd></div>
+      <div><dt>FNSKU</dt><dd>X0058ZEF9P</dd></div>
+      <div><dt>ASIN</dt><dd>B0HFSN72LM</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="JV-IW8Y-9XX9" data-name="Hemp Sun Hat, clean edge" data-meta="Black · Medium" data-fnsku="X0058ZEF9P">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-JV-IW8Y-9XX9.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat700bxl x0053g6san b0gypy79q1 hemp sun hat, clean edge black xl/xxl">
+  <div class="pic"><img src="img-41qMjqNj4SL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span><span class="chip size">XL/XXL</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT700BXL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0053G6SAN</dd></div>
+      <div><dt>ASIN</dt><dd>B0GYPY79Q1</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT700BXL" data-name="Hemp Sun Hat, clean edge" data-meta="Black · XL/XXL" data-fnsku="X0053G6SAN">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT700BXL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat700m x004rp9b2d b0fj7cr59t hemp sun hat, clean edge natural medium">
+  <div class="pic"><img src="img-41uotib8iWL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">Medium</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT700M</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RP9B2D</dd></div>
+      <div><dt>ASIN</dt><dd>B0FJ7CR59T</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT700M" data-name="Hemp Sun Hat, clean edge" data-meta="Natural · Medium" data-fnsku="X004RP9B2D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT700M.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="ud-vs2g-gypo x0058z320d b0hfsng9gl hemp sun hat, clean edge natural medium">
+  <div class="pic"><img src="img-41uotib8iWL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">Medium</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>UD-VS2G-GYPO</dd></div>
+      <div><dt>FNSKU</dt><dd>X0058Z320D</dd></div>
+      <div><dt>ASIN</dt><dd>B0HFSNG9GL</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="UD-VS2G-GYPO" data-name="Hemp Sun Hat, clean edge" data-meta="Natural · Medium" data-fnsku="X0058Z320D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-UD-VS2G-GYPO.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat700l x004rp9yp7 b0fj7fptpn hemp sun hat, clean edge natural large">
+  <div class="pic"><img src="img-41uotib8iWL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">Large</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT700L</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RP9YP7</dd></div>
+      <div><dt>ASIN</dt><dd>B0FJ7FPTPN</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT700L" data-name="Hemp Sun Hat, clean edge" data-meta="Natural · Large" data-fnsku="X004RP9YP7">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT700L.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hat700axl x0053wihbz b0gzsqs79p hemp sun hat, clean edge natural xl/xxl">
+  <div class="pic"><img src="img-41uotib8iWL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Sun Hat, clean edge</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">XL/XXL</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HAT700AXL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0053WIHBZ</dd></div>
+      <div><dt>ASIN</dt><dd>B0GZSQS79P</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HAT700AXL" data-name="Hemp Sun Hat, clean edge" data-meta="Natural · XL/XXL" data-fnsku="X0053WIHBZ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HAT700AXL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="hat-bucket" class="fam">
+  <header class="fam-h"><h2>Hemp Bucket Hat</h2><p>Short brim bucket style · 3 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="hatb8m x0053g47m9 b0gyq64xwr hemp bucket hat natural medium">
+  <div class="pic"><img src="img-51OLRy6bWzL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Bucket Hat</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">Medium</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HATB8M</dd></div>
+      <div><dt>FNSKU</dt><dd>X0053G47M9</dd></div>
+      <div><dt>ASIN</dt><dd>B0GYQ64XWR</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HATB8M" data-name="Hemp Bucket Hat" data-meta="Natural · Medium" data-fnsku="X0053G47M9">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HATB8M.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hatb8l x0053fy7jx b0gypwspps hemp bucket hat natural large">
+  <div class="pic"><img src="img-51OLRy6bWzL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Bucket Hat</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">Large</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HATB8L</dd></div>
+      <div><dt>FNSKU</dt><dd>X0053FY7JX</dd></div>
+      <div><dt>ASIN</dt><dd>B0GYPWSPPS</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HATB8L" data-name="Hemp Bucket Hat" data-meta="Natural · Large" data-fnsku="X0053FY7JX">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HATB8L.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hatb9xl x0053fy85b b0gyq47x6m hemp bucket hat natural x-large">
+  <div class="pic"><img src="img-51OLRy6bWzL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Bucket Hat</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span><span class="chip size">X-Large</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HATB9XL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0053FY85B</dd></div>
+      <div><dt>ASIN</dt><dd>B0GYQ47X6M</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HATB9XL" data-name="Hemp Bucket Hat" data-meta="Natural · X-Large" data-fnsku="X0053FY85B">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HATB9XL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="fisherman" class="fam">
+  <header class="fam-h"><h2>Thai Fisherman Pants</h2><p>100% cotton wrap pants · 10 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="fn600lb x00568pey9 b0h6kfgqbt fisherman pants black ">
+  <div class="pic"><img src="img-31rUzDg8CDL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FN600LB</dd></div>
+      <div><dt>FNSKU</dt><dd>X00568PEY9</dd></div>
+      <div><dt>ASIN</dt><dd>B0H6KFGQBT</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FN600LB" data-name="Fisherman Pants" data-meta="Black" data-fnsku="X00568PEY9">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FN600LB.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="lt-ym6l-oprg x002ztj2sv b09dfkj578 fisherman pants black ">
+  <div class="pic"><img src="img-31rUzDg8CDL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LT-YM6L-OPRG</dd></div>
+      <div><dt>FNSKU</dt><dd>X002ZTJ2SV</dd></div>
+      <div><dt>ASIN</dt><dd>B09DFKJ578</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LT-YM6L-OPRG" data-name="Fisherman Pants" data-meta="Black" data-fnsku="X002ZTJ2SV">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LT-YM6L-OPRG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="8n-vcyp-6wav x002zttj4x b09dfmjzph fisherman pants blue ">
+  <div class="pic"><img src="img-41ROEM4WvfL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-blue"><i></i>Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>8N-VCYP-6WAV</dd></div>
+      <div><dt>FNSKU</dt><dd>X002ZTTJ4X</dd></div>
+      <div><dt>ASIN</dt><dd>B09DFMJZPH</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="8N-VCYP-6WAV" data-name="Fisherman Pants" data-meta="Blue" data-fnsku="X002ZTTJ4X">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-8N-VCYP-6WAV.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="0e-zkmu-6rf5 x00377c7nr b09wdwy1bd fisherman pants green ">
+  <div class="pic"><img src="img-31rZXASp89L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>0E-ZKMU-6RF5</dd></div>
+      <div><dt>FNSKU</dt><dd>X00377C7NR</dd></div>
+      <div><dt>ASIN</dt><dd>B09WDWY1BD</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="0E-ZKMU-6RF5" data-name="Fisherman Pants" data-meta="Green" data-fnsku="X00377C7NR">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-0E-ZKMU-6RF5.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="fn600lg x00568oem7 b0h6kpt39l fisherman pants grey blue ">
+  <div class="pic"><img src="img-41GMjdUZF5L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-grey-blue"><i></i>Grey Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FN600LG</dd></div>
+      <div><dt>FNSKU</dt><dd>X00568OEM7</dd></div>
+      <div><dt>ASIN</dt><dd>B0H6KPT39L</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FN600LG" data-name="Fisherman Pants" data-meta="Grey Blue" data-fnsku="X00568OEM7">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FN600LG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="lb-hxma-6niu x0033ewj3h b09ddzfsnj fisherman pants grey blue ">
+  <div class="pic"><img src="img-41GMjdUZF5L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-grey-blue"><i></i>Grey Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LB-HXMA-6NIU</dd></div>
+      <div><dt>FNSKU</dt><dd>X0033EWJ3H</dd></div>
+      <div><dt>ASIN</dt><dd>B09DDZFSNJ</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LB-HXMA-6NIU" data-name="Fisherman Pants" data-meta="Grey Blue" data-fnsku="X0033EWJ3H">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LB-HXMA-6NIU.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="3u-k987-mhfi x002zthl11 b09dfk82v1 fisherman pants maroon ">
+  <div class="pic"><img src="img-31imfNwZ8oL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-maroon"><i></i>Maroon</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>3U-K987-MHFI</dd></div>
+      <div><dt>FNSKU</dt><dd>X002ZTHL11</dd></div>
+      <div><dt>ASIN</dt><dd>B09DFK82V1</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="3U-K987-MHFI" data-name="Fisherman Pants" data-meta="Maroon" data-fnsku="X002ZTHL11">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-3U-K987-MHFI.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="9f-6c2u-tlir x00377ljgx b09wdxtmx3 fisherman pants off-white ">
+  <div class="pic"><img src="img-31L3YTQ2CLL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-off-white"><i></i>Off-white</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>9F-6C2U-TLIR</dd></div>
+      <div><dt>FNSKU</dt><dd>X00377LJGX</dd></div>
+      <div><dt>ASIN</dt><dd>B09WDXTMX3</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="9F-6C2U-TLIR" data-name="Fisherman Pants" data-meta="Off-white" data-fnsku="X00377LJGX">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-9F-6C2U-TLIR.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="fhorg x002hpspqx b00p8fdkvi fisherman pants orange ">
+  <div class="pic"><img src="img-41B9fnUYtWL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-orange"><i></i>Orange</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FHORG</dd></div>
+      <div><dt>FNSKU</dt><dd>X002HPSPQX</dd></div>
+      <div><dt>ASIN</dt><dd>B00P8FDKVI</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FHORG" data-name="Fisherman Pants" data-meta="Orange" data-fnsku="X002HPSPQX">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FHORG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="fn600w x00560wijl b0h5zlscx5 fisherman pants white ">
+  <div class="pic"><img src="img-31NKyAQdsRL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Fisherman Pants</h3>
+    <div class="chips"><span class="chip c-white"><i></i>White</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FN600W</dd></div>
+      <div><dt>FNSKU</dt><dd>X00560WIJL</dd></div>
+      <div><dt>ASIN</dt><dd>B0H5ZLSCX5</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FN600W" data-name="Fisherman Pants" data-meta="White" data-fnsku="X00560WIJL">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FN600W.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="cargo" class="fam">
+  <header class="fam-h"><h2>Harem Cargo Pants</h2><p>Multicolor cotton with cargo pockets · 2 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="cargosm x0057eztp1 b0h9hqz7rp harem cargo pants multicolor s/m">
+  <div class="pic"><img src="img-41Cz0vyCI0L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Harem Cargo Pants</h3>
+    <div class="chips"><span class="chip c-multicolor"><i></i>Multicolor</span><span class="chip size">S/M</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>CargoSM</dd></div>
+      <div><dt>FNSKU</dt><dd>X0057EZTP1</dd></div>
+      <div><dt>ASIN</dt><dd>B0H9HQZ7RP</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="CargoSM" data-name="Harem Cargo Pants" data-meta="Multicolor · S/M" data-fnsku="X0057EZTP1">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-CargoSM.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="cargolxl x0057f6frl b0h9hkws18 harem cargo pants multicolor l/xl">
+  <div class="pic"><img src="img-41Cz0vyCI0L.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Harem Cargo Pants</h3>
+    <div class="chips"><span class="chip c-multicolor"><i></i>Multicolor</span><span class="chip size">L/XL</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>CargoLXL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0057F6FRL</dd></div>
+      <div><dt>ASIN</dt><dd>B0H9HKWS18</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="CargoLXL" data-name="Harem Cargo Pants" data-meta="Multicolor · L/XL" data-fnsku="X0057F6FRL">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-CargoLXL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="poncho" class="fam">
+  <header class="fam-h"><h2>Ponchos</h2><p>Gheri cotton hooded ponchos · 3 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="rt-ds2k-v77v x002rvt3zj b08t1h16zh hooded poncho blue ">
+  <div class="pic"><img src="img-41vI2KE0rgL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hooded Poncho</h3>
+    <div class="chips"><span class="chip c-blue"><i></i>Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>RT-DS2K-V77V</dd></div>
+      <div><dt>FNSKU</dt><dd>X002RVT3ZJ</dd></div>
+      <div><dt>ASIN</dt><dd>B08T1H16ZH</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="RT-DS2K-V77V" data-name="Hooded Poncho" data-meta="Blue" data-fnsku="X002RVT3ZJ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-RT-DS2K-V77V.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="wh-g6wo-3u1i x002rvt5v1 b08szwrmr5 hooded poncho green ">
+  <div class="pic"><img src="img-41lUr41lXLL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hooded Poncho</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>WH-G6WO-3U1I</dd></div>
+      <div><dt>FNSKU</dt><dd>X002RVT5V1</dd></div>
+      <div><dt>ASIN</dt><dd>B08SZWRMR5</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="WH-G6WO-3U1I" data-name="Hooded Poncho" data-meta="Green" data-fnsku="X002RVT5V1">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-WH-G6WO-3U1I.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="55-gmvp-gxu6 x004r2xa37 b0fgy533h3 baja patchwork poncho multicolor ">
+  <div class="pic"><img src="img-31AScqoughL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Baja Patchwork Poncho</h3>
+    <div class="chips"><span class="chip c-multicolor"><i></i>Multicolor</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>55-GMVP-GXU6</dd></div>
+      <div><dt>FNSKU</dt><dd>X004R2XA37</dd></div>
+      <div><dt>ASIN</dt><dd>B0FGY533H3</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="55-GMVP-GXU6" data-name="Baja Patchwork Poncho" data-meta="Multicolor" data-fnsku="X004R2XA37">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-55-GMVP-GXU6.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="palazzo" class="fam">
+  <header class="fam-h"><h2>Palazzo Pants + Wrap Top Set</h2><p>Patchwork cotton set · 2 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="ne-wuhz-jcw7 x004rp9edj b0fj7gqg76 palazzo pants + top set green s/m">
+  <div class="pic"><img src="img-31l3julSEpL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Palazzo Pants + Top Set</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span><span class="chip size">S/M</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>NE-WUHZ-JCW7</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RP9EDJ</dd></div>
+      <div><dt>ASIN</dt><dd>B0FJ7GQG76</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="NE-WUHZ-JCW7" data-name="Palazzo Pants + Top Set" data-meta="Green · S/M" data-fnsku="X004RP9EDJ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-NE-WUHZ-JCW7.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="l1-m0l0-q8w4 x004rp9n9t b0fj7jym5t palazzo pants + top set green l/xl">
+  <div class="pic"><img src="img-31l3julSEpL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Palazzo Pants + Top Set</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span><span class="chip size">L/XL</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>L1-M0L0-Q8W4</dd></div>
+      <div><dt>FNSKU</dt><dd>X004RP9N9T</dd></div>
+      <div><dt>ASIN</dt><dd>B0FJ7JYM5T</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="L1-M0L0-Q8W4" data-name="Palazzo Pants + Top Set" data-meta="Green · L/XL" data-fnsku="X004RP9N9T">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-L1-M0L0-Q8W4.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="pouches" class="fam">
+  <header class="fam-h"><h2>Pouches &amp; Coin Purses</h2><p>Zip pouch sets, tobacco pouch · 7 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="prs100 x004vfqalj b0fw1ysvcd coin purse set of 3 (cotton &amp; hemp) black ">
+  <div class="pic"><img src="img-51LUx94NGFL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Coin Purse Set of 3 (cotton &amp; hemp)</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>PRS100</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VFQALJ</dd></div>
+      <div><dt>ASIN</dt><dd>B0FW1YSVCD</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="PRS100" data-name="Coin Purse Set of 3 (cotton &amp; hemp)" data-meta="Black" data-fnsku="X004VFQALJ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-PRS100.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="prs101 x004vfopyn b0fw27644x coin purse set of 3 (cotton &amp; hemp) blue ">
+  <div class="pic"><img src="img-41u9dLqHzKL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Coin Purse Set of 3 (cotton &amp; hemp)</h3>
+    <div class="chips"><span class="chip c-blue"><i></i>Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>PRS101</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VFOPYN</dd></div>
+      <div><dt>ASIN</dt><dd>B0FW27644X</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="PRS101" data-name="Coin Purse Set of 3 (cotton &amp; hemp)" data-meta="Blue" data-fnsku="X004VFOPYN">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-PRS101.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="cd-ey7x-89na x004vf5tk7 b0fvzbvv8g hemp boho pouch set of 3 (wrist strap) natural ">
+  <div class="pic"><img src="img-41+aWkyAvUL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Boho Pouch Set of 3 (wrist strap)</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>CD-EY7X-89NA</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VF5TK7</dd></div>
+      <div><dt>ASIN</dt><dd>B0FVZBVV8G</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="CD-EY7X-89NA" data-name="Hemp Boho Pouch Set of 3 (wrist strap)" data-meta="Natural" data-fnsku="X004VF5TK7">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-CD-EY7X-89NA.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="ei-hvfl-e6mq x004vemcdf b0fs45lm5s hemp zipper pouch set natural ">
+  <div class="pic"><img src="img-41AqIvyckyL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Zipper Pouch Set</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>EI-HVFL-E6MQ</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VEMCDF</dd></div>
+      <div><dt>ASIN</dt><dd>B0FS45LM5S</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="EI-HVFL-E6MQ" data-name="Hemp Zipper Pouch Set" data-meta="Natural" data-fnsku="X004VEMCDF">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-EI-HVFL-E6MQ.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="n4-6hfc-k2zc x0051sa77n b0gtvz48f5 hemp pouch set, 3 piece + coin purse natural ">
+  <div class="pic"><img src="img-41BTVNApWQL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Pouch Set, 3 piece + coin purse</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>N4-6HFC-K2ZC</dd></div>
+      <div><dt>FNSKU</dt><dd>X0051SA77N</dd></div>
+      <div><dt>ASIN</dt><dd>B0GTVZ48F5</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="N4-6HFC-K2ZC" data-name="Hemp Pouch Set, 3 piece + coin purse" data-meta="Natural" data-fnsku="X0051SA77N">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-N4-6HFC-K2ZC.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="sr-lws8-wn1o x004w5miup b0fxyg23xx hemp tobacco pouch natural ">
+  <div class="pic"><img src="img-419kjbLCBNL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Tobacco Pouch</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>SR-LWS8-WN1O</dd></div>
+      <div><dt>FNSKU</dt><dd>X004W5MIUP</dd></div>
+      <div><dt>ASIN</dt><dd>B0FXYG23XX</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="SR-LWS8-WN1O" data-name="Hemp Tobacco Pouch" data-meta="Natural" data-fnsku="X004W5MIUP">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-SR-LWS8-WN1O.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="prs102 x004vfoq83 b0fw1yxr29 coin purse set of 3 (cotton &amp; hemp) red ">
+  <div class="pic"><img src="img-41RzNg2ZgzL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Coin Purse Set of 3 (cotton &amp; hemp)</h3>
+    <div class="chips"><span class="chip c-red"><i></i>Red</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>PRS102</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VFOQ83</dd></div>
+      <div><dt>ASIN</dt><dd>B0FW1YXR29</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="PRS102" data-name="Coin Purse Set of 3 (cotton &amp; hemp)" data-meta="Red" data-fnsku="X004VFOQ83">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-PRS102.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="bags" class="fam">
+  <header class="fam-h"><h2>Bags &amp; Carriers</h2><p>Crossbody bag, yoga mat bag, bottle holder · 4 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="bag6002 x004vetw5l b0fvy9bky9 hemp crossbody bag, mushroom embroidery green ">
+  <div class="pic"><img src="img-514UQy6+FBL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Crossbody Bag, mushroom embroidery</h3>
+    <div class="chips"><span class="chip c-green"><i></i>Green</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>BAG6002</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VETW5L</dd></div>
+      <div><dt>ASIN</dt><dd>B0FVY9BKY9</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="BAG6002" data-name="Hemp Crossbody Bag, mushroom embroidery" data-meta="Green" data-fnsku="X004VETW5L">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-BAG6002.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hd-fjpz-1bsz x004yganop b0gcd43k1k yoga mat bag with strap multicolor ">
+  <div class="pic"><img src="img-41mltUWeldL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Yoga Mat Bag with strap</h3>
+    <div class="chips"><span class="chip c-multicolor"><i></i>Multicolor</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HD-FJPZ-1BSZ</dd></div>
+      <div><dt>FNSKU</dt><dd>X004YGANOP</dd></div>
+      <div><dt>ASIN</dt><dd>B0GCD43K1K</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HD-FJPZ-1BSZ" data-name="Yoga Mat Bag with strap" data-meta="Multicolor" data-fnsku="X004YGANOP">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HD-FJPZ-1BSZ.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="6t-pvsp-1r8v x004n4m69d b0f48vlvmt hemp water bottle holder (macrame) natural ">
+  <div class="pic"><img src="img-31UfiiRMTwL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Water Bottle Holder (macrame)</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>6T-PVSP-1R8V</dd></div>
+      <div><dt>FNSKU</dt><dd>X004N4M69D</dd></div>
+      <div><dt>ASIN</dt><dd>B0F48VLVMT</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="6T-PVSP-1R8V" data-name="Hemp Water Bottle Holder (macrame)" data-meta="Natural" data-fnsku="X004N4M69D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-6T-PVSP-1R8V.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="bag6001 x004vese87 b0fvy1v4xg hemp crossbody bag, mushroom embroidery natural ">
+  <div class="pic"><img src="img-41tz6GpTGfL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Crossbody Bag, mushroom embroidery</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>BAG6001</dd></div>
+      <div><dt>FNSKU</dt><dd>X004VESE87</dd></div>
+      <div><dt>ASIN</dt><dd>B0FVY1V4XG</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="BAG6001" data-name="Hemp Crossbody Bag, mushroom embroidery" data-meta="Natural" data-fnsku="X004VESE87">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-BAG6001.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="wallets" class="fam">
+  <header class="fam-h"><h2>Hemp Wallets</h2><p>Bifold wallets · 3 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="hm100b x005amz329 b0hj12vy8p hemp gheri bifold wallet blue ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Hemp Gheri Bifold Wallet</h3>
+    <div class="chips"><span class="chip c-blue"><i></i>Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HM100B</dd></div>
+      <div><dt>FNSKU</dt><dd>X005AMZ329</dd></div>
+      <div><dt>ASIN</dt><dd>B0HJ12VY8P</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HM100B" data-name="Hemp Gheri Bifold Wallet" data-meta="Blue" data-fnsku="X005AMZ329">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HM100B.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="4o-ypnd-uea3 x004ysnok3 b0gf3spd3c hemp bifold wallet natural ">
+  <div class="pic"><img src="img-31y7y6WIvxL.jpg" alt="" loading="lazy"></div>
+  <div class="body">
+    <h3>Hemp Bifold Wallet</h3>
+    <div class="chips"><span class="chip c-natural"><i></i>Natural</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>4O-YPND-UEA3</dd></div>
+      <div><dt>FNSKU</dt><dd>X004YSNOK3</dd></div>
+      <div><dt>ASIN</dt><dd>B0GF3SPD3C</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="4O-YPND-UEA3" data-name="Hemp Bifold Wallet" data-meta="Natural" data-fnsku="X004YSNOK3">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-4O-YPND-UEA3.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hm100or x005andkgj b0hj13lmwv hemp gheri bifold wallet orange ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Hemp Gheri Bifold Wallet</h3>
+    <div class="chips"><span class="chip c-orange"><i></i>Orange</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HM100OR</dd></div>
+      <div><dt>FNSKU</dt><dd>X005ANDKGJ</dd></div>
+      <div><dt>ASIN</dt><dd>B0HJ13LMWV</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HM100OR" data-name="Hemp Gheri Bifold Wallet" data-meta="Orange" data-fnsku="X005ANDKGJ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HM100OR.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="mittens" class="fam">
+  <header class="fam-h"><h2>Wool Mittens (new)</h2><p>Fleece-lined honeycomb knit · 4 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="fm100bg x0059xl5o9 b0hhyhrqsh fingerless mittens, fleece lined beige ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Fingerless Mittens, fleece lined</h3>
+    <div class="chips"><span class="chip c-beige"><i></i>Beige</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FM100BG</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059XL5O9</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHYHRQSH</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FM100BG" data-name="Fingerless Mittens, fleece lined" data-meta="Beige" data-fnsku="X0059XL5O9">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FM100BG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="mt100bg x0059xgcdd b0hhycgy1y full mittens, fleece lined beige ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Full Mittens, fleece lined</h3>
+    <div class="chips"><span class="chip c-beige"><i></i>Beige</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>MT100BG</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059XGCDD</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHYCGY1Y</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="MT100BG" data-name="Full Mittens, fleece lined" data-meta="Beige" data-fnsku="X0059XGCDD">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-MT100BG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="fm100gy x0059xl193 b0hhyf1s71 fingerless mittens, fleece lined grey ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Fingerless Mittens, fleece lined</h3>
+    <div class="chips"><span class="chip c-grey"><i></i>Grey</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>FM100GY</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059XL193</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHYF1S71</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="FM100GY" data-name="Fingerless Mittens, fleece lined" data-meta="Grey" data-fnsku="X0059XL193">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-FM100GY.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="mt100gy x0059xjtgp b0hhyb8vt1 full mittens, fleece lined grey ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Full Mittens, fleece lined</h3>
+    <div class="chips"><span class="chip c-grey"><i></i>Grey</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>MT100GY</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059XJTGP</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHYB8VT1</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="MT100GY" data-name="Full Mittens, fleece lined" data-meta="Grey" data-fnsku="X0059XJTGP">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-MT100GY.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="legwarmers" class="fam">
+  <header class="fam-h"><h2>Wool Leg Warmers (new)</h2><p>LG200 fleece-lined snowflake · LG300 unlined honeycomb · 4 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="lg300bg x0059xe1v3 b0hhy5p3zd leg warmers, unlined honeycomb (lg300) beige ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Leg Warmers, unlined honeycomb (LG300)</h3>
+    <div class="chips"><span class="chip c-beige"><i></i>Beige</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LG300BG</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059XE1V3</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHY5P3ZD</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LG300BG" data-name="Leg Warmers, unlined honeycomb (LG300)" data-meta="Beige" data-fnsku="X0059XE1V3">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LG300BG.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="lg200bl x0059ark9b b0hgg7rprb leg warmers, fleece lined snowflake (lg200) black ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Leg Warmers, fleece lined snowflake (LG200)</h3>
+    <div class="chips"><span class="chip c-black"><i></i>Black</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LG200BL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059ARK9B</dd></div>
+      <div><dt>ASIN</dt><dd>B0HGG7RPRB</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LG200BL" data-name="Leg Warmers, fleece lined snowflake (LG200)" data-meta="Black" data-fnsku="X0059ARK9B">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LG200BL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="lg300gy x0059x5rbv b0hhy6hxm3 leg warmers, unlined honeycomb (lg300) grey ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Leg Warmers, unlined honeycomb (LG300)</h3>
+    <div class="chips"><span class="chip c-grey"><i></i>Grey</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LG300GY</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059X5RBV</dd></div>
+      <div><dt>ASIN</dt><dd>B0HHY6HXM3</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LG300GY" data-name="Leg Warmers, unlined honeycomb (LG300)" data-meta="Grey" data-fnsku="X0059X5RBV">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LG300GY.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="lg200wh x0059aliud b0hggdqm77 leg warmers, fleece lined snowflake (lg200) white ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Leg Warmers, fleece lined snowflake (LG200)</h3>
+    <div class="chips"><span class="chip c-white"><i></i>White</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>LG200WH</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059ALIUD</dd></div>
+      <div><dt>ASIN</dt><dd>B0HGGDQM77</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="LG200WH" data-name="Leg Warmers, fleece lined snowflake (LG200)" data-meta="White" data-fnsku="X0059ALIUD">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-LG200WH.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section><section id="headbands" class="fam">
+  <header class="fam-h"><h2>Ear Warmer Headbands (new)</h2><p>Crochet granny square, fleece lined · 2 SKUs</p></header>
+  <div class="grid"><article class="card" data-q="hb100bl x0059au5jn b0hghmf1tw ear warmer headband blue ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Ear Warmer Headband</h3>
+    <div class="chips"><span class="chip c-blue"><i></i>Blue</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HB100BL</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059AU5JN</dd></div>
+      <div><dt>ASIN</dt><dd>B0HGHMF1TW</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HB100BL" data-name="Ear Warmer Headband" data-meta="Blue" data-fnsku="X0059AU5JN">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HB100BL.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article><article class="card" data-q="hb100rd x0059b1trj b0hghhjghz ear warmer headband red mix ">
+  <div class="pic"><div class="noimg"><span data-en="No photo yet" data-ne="फोटो छैन">No photo yet</span></div><span class="new">NEW</span></div>
+  <div class="body">
+    <h3>Ear Warmer Headband</h3>
+    <div class="chips"><span class="chip c-red-mix"><i></i>Red Mix</span></div>
+    <dl class="codes">
+      <div><dt>SKU</dt><dd>HB100RD</dd></div>
+      <div><dt>FNSKU</dt><dd>X0059B1TRJ</dd></div>
+      <div><dt>ASIN</dt><dd>B0HGHHJGHZ</dd></div>
+    </dl>
+    <div class="actions">
+      <button type="button" class="dl print-btn" data-sku="HB100RD" data-name="Ear Warmer Headband" data-meta="Red Mix" data-fnsku="X0059B1TRJ">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M6 2h12v5H6zM4 8h16a2 2 0 0 1 2 2v7h-4v-4H6v4H2v-7a2 2 0 0 1 2-2zm4 7h8v7H8z"/></svg>
+        <span data-en="Print labels" data-ne="लेबल प्रिन्ट">Print labels</span>
+      </button>
+      <a class="pdf" href="label-HB100RD.pdf" target="_blank" rel="noopener" title="Open PDF">PDF</a>
+    </div>
+  </div>
+</article></div>
+</section>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="sheet">
+      <div class="preview" id="preview"><div class="msg" data-en="Loading label sheet…" data-ne="लेबल पाना लोड हुँदैछ…">Loading label sheet…</div></div>
+      <div class="panel">
+        <h2 id="mTitle">—</h2>
+        <p class="meta" id="mMeta"></p>
+        <div class="code" id="mCode"></div>
+        <div class="qty"><label for="qtyOut" data-en="Sheets needed" data-ne="चाहिने पाना">Sheets needed</label><button type="button" id="qMinus" aria-label="fewer">−</button><output id="qtyOut">1</output><button type="button" id="qPlus" aria-label="more">+</button></div>
+        <p class="labels-total"><span id="labelsTotal">40</span> <span data-en="labels (40 per A4 sheet)" data-ne="लेबल (प्रति A4 पाना ४०)">labels (40 per A4 sheet)</span><b id="copiesN" hidden></b></p>
+        <button type="button" class="btn primary" id="doPrint"><span data-en="Print" data-ne="प्रिन्ट">Print</span></button>
+        <button type="button" class="btn ghost" id="closeM"><span data-en="Cancel" data-ne="रद्द">Cancel</span></button>
+        <p class="hint" data-en="Load the 40-up A4 label paper (52.5 × 29.7 mm) first. Print at actual size / 100%, no “fit to page”." data-ne="पहिले ४० लेबलको A4 पेपर (52.5 × 29.7 mm) राख्नुहोस्। Actual size / 100% मा प्रिन्ट गर्नुहोस्, “fit to page” होइन।">Load the 40-up A4 label paper (52.5 × 29.7 mm) first. Print at actual size / 100%, no “fit to page”.</p>
+      </div>
+    </div>
+  </div>
+  <p class="empty" data-en="No product matches this search." data-ne="यो खोजसँग मिल्ने उत्पादन छैन।">No product matches this search.</p>
+  <footer>Codes and label sheets come from Amazon Seller Central (FBA item labels, 40-up A4). Frayed-edge hat sizes are head circumference in inches. Updated 15 Sep 2026.</footer>
+</div>
+
+<div id="printArea"></div>
+<script>
+(function(){
+  /* ---- direct printing ---- */
+  var modal=document.getElementById('modal'), preview=document.getElementById('preview'), doPrint=document.getElementById('doPrint');
+  var qty=1, qtyOut=document.getElementById('qtyOut'), labelsTotal=document.getElementById('labelsTotal'), printArea=document.getElementById('printArea');
+  var current=null;
+  function setQty(n){ qty=Math.max(1,Math.min(20,n)); qtyOut.value=qty; labelsTotal.textContent=qty*40; document.getElementById('copiesN').textContent=qty; }
+  document.getElementById('qMinus').onclick=function(){setQty(qty-1)};
+  document.getElementById('qPlus').onclick=function(){setQty(qty+1)};
+  function close(){ modal.classList.remove('open'); current=null; }
+  document.getElementById('closeM').onclick=close;
+  modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&modal.classList.contains('open')) close(); });
+  [].forEach.call(document.querySelectorAll('.print-btn'),function(b){
+    b.addEventListener('click',function(){
+      var sku=b.getAttribute('data-sku'); current=sku;
+      document.getElementById('mTitle').textContent=b.getAttribute('data-name');
+      document.getElementById('mMeta').textContent=b.getAttribute('data-meta');
+      document.getElementById('mCode').textContent=sku+'  ·  '+b.getAttribute('data-fnsku');
+      preview.innerHTML='<div class="msg">'+(document.documentElement.lang==='ne'?'लेबल पाना लोड हुँदैछ…':'Loading label sheet…')+'</div>';
+      setQty(1); modal.classList.add('open');
+      var im=new Image(); im.alt='';
+      im.onload=function(){ if(current!==sku) return; preview.innerHTML=''; im.style.cssText='width:100%;max-width:420px;height:auto;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.2)'; preview.appendChild(im); };
+      im.onerror=function(){ if(current!==sku) return; preview.innerHTML='<div class="msg">'+(document.documentElement.lang==='ne'?'पूर्वावलोकन उपलब्ध छैन — PDF खोलेर प्रिन्ट गर्नुहोस्।':'Preview unavailable — open the PDF and print from there.')+'<br><br><a class="btn ghost" target="_blank" rel="noopener" href="label-'+sku+'.pdf">PDF</a></div>'; doPrint.disabled=true; };
+      im.src='sheet-'+sku+'.png';
+    });
+  });
+  doPrint.addEventListener('click',function(){
+    if(!current) return;
+    printArea.innerHTML=''; var pending=qty, sku=current;
+    for(var i=0;i<qty;i++){ var im=new Image(); im.onload=im.onerror=function(){ if(--pending===0) setTimeout(function(){ window.print(); },100); }; im.src='sheet-'+sku+'.png'; printArea.appendChild(im); }
+  });
+  window.addEventListener('afterprint',function(){ printArea.innerHTML=''; });
+  /* ---- search + language ---- */
+  var q=document.getElementById('q'), cards=[].slice.call(document.querySelectorAll('.card')), shown=document.getElementById('shown'), fams=[].slice.call(document.querySelectorAll('.fam'));
+  function run(){
+    var t=q.value.trim().toLowerCase().split(/\s+/).filter(Boolean), n=0;
+    cards.forEach(function(c){ var d=c.getAttribute('data-q'); var ok=t.every(function(w){return d.indexOf(w)>-1}); c.hidden=!ok; if(ok)n++; });
+    fams.forEach(function(f){ f.hidden=!f.querySelector('.card:not([hidden])'); });
+    shown.textContent=n; document.body.classList.toggle('nores',n===0);
+  }
+  q.addEventListener('input',run);
+  var lang='en', els=[].slice.call(document.querySelectorAll('[data-en]'));
+  function setLang(l){ lang=l; document.documentElement.lang=(l==='ne'?'ne':'en'); els.forEach(function(e){ var v=e.getAttribute('data-'+l); if(!v)return; if(e.tagName==='INPUT') e.placeholder=v; else e.textContent=v; }); try{localStorage.setItem('labeldesk-lang',l)}catch(e){} }
+  document.getElementById('lang').addEventListener('click',function(){ setLang(lang==='en'?'ne':'en'); });
+  try{ var L=localStorage.getItem('labeldesk-lang'); if(L==='ne') setLang('ne'); }catch(e){}
+  try{ var s=localStorage.getItem('labeldesk-q'); if(s){q.value=s;run();} }catch(e){}
+  q.addEventListener('input',function(){ try{localStorage.setItem('labeldesk-q',q.value)}catch(e){} });
+})();
+</script>
+</html>
+</body></html>
